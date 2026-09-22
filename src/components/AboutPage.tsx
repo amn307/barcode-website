@@ -14,53 +14,7 @@ import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
 import { useCms } from "../cms/CmsContext";
 
-const goals = [
-  {
-    number: "01",
-    icon: Coffee,
-    title: "Top-Tier Products",
-    text: "Deliver exceptional specialty coffee, sweets, and products that consistently exceed expectations.",
-  },
-  {
-    number: "02",
-    icon: Sparkles,
-    title: "A Leading Brand",
-    text: "Build a distinctive specialty coffee brand with a standard of quality people recognize and trust.",
-  },
-  {
-    number: "03",
-    icon: Globe2,
-    title: "Global Expansion",
-    text: "Grow our presence locally, regionally, and internationally to reach more coffee lovers.",
-  },
-];
 
-const values = [
-  {
-    number: "01",
-    icon: ShieldCheck,
-    title: "Integrity & Transparency",
-    text: "We work with honesty, credibility, and transparency in everything we do.",
-  },
-  {
-    number: "02",
-    icon: HeartHandshake,
-    title: "Customer Experience",
-    text: "Creating better customer experiences sits at the heart of what we build.",
-  },
-  {
-    number: "03",
-    icon: Lightbulb,
-    title: "Creativity & Innovation",
-    text: "We embrace new ideas and continuous innovation to move specialty coffee forward.",
-  },
-  {
-    number: "04",
-    icon: Target,
-    title: "Commitment & Reliability",
-    text: "Our commitment to quality and dependable standards defines the way we operate.",
-  },
-];
 
 export function AboutPage() {
   const { cms } = useCms();
