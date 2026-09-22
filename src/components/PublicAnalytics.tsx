@@ -1,0 +1,1 @@
+import{useLocation}from'react-router-dom';import AnalyticsTracker from'../analytics/AnalyticsTracker';import PublicTracking from'../cms/PublicTracking';export default function PublicAnalytics(){const l=useLocation();if(l.pathname.startsWith('/admin'))return null;return <><PublicTracking/><AnalyticsTracker/></>}
