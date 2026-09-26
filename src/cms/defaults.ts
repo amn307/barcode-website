@@ -428,57 +428,85 @@ export const defaultCms: CmsState = {
      ========================================================= */
 
   franchise: {
-
     hero: {
-      image: {
-        src: franchiseHero,
-        alt: "BARCODE café interior",
-      },
-
+      image: { src: franchiseHero, alt: "BARCODE café interior" },
       kicker: "FRANCHISE OPPORTUNITY",
-
-      title: "Build with BARCODE.",
-
-      accent: "Grow with purpose.",
-
-      intro:
-        "Bring the BARCODE coffee experience to your market with a proven brand and operating framework.",
-
+      title: "Become a",
+      accent: "PARTNER.",
+      intro: "Bring a distinctive specialty coffee experience to your market and build the next chapter of BARCODE with us.",
+      cta: "START YOUR APPLICATION",
+      index: "01",
+      country: "SAUDI ARABIA",
+    },
+    opportunity: {
+      index: "01",
+      label: "THE OPPORTUNITY",
+      title: "More Than Coffee.",
+      accent: "A Brand Built to Grow.",
+      text: "BARCODE® brings together specialty coffee, considered design and a customer-first experience. The franchise opportunity is built for partners who want to carry that experience into new communities while maintaining the standards behind the brand.",
       cta: "START YOUR APPLICATION",
     },
-
-
-    opportunity: {
-      title:
-        "A specialty coffee opportunity built for growth.",
-
-      text:
-        "Partner with BARCODE to build a location supported by brand standards, operating guidance and specialty coffee expertise.",
+    includes: {
+      index: "02",
+      label: "YOUR FRANCHISE INCLUDES",
+      title: "Built with you.",
+      accent: "Backed by BARCODE.",
+      items: [
+        { icon: "badge", title: "Trademark License", text: "Operate under the BARCODE® brand and its established visual identity." },
+        { icon: "map", title: "Site Approval", text: "Guidance and approval to help select a location aligned with the concept." },
+        { icon: "training", title: "Training & Support", text: "Operational training and support to prepare your team for opening." },
+        { icon: "marketing", title: "Marketing", text: "Brand-led marketing guidance and launch communication support." },
+        { icon: "building", title: "Opening Support", text: "Support through the final preparation and opening stages." },
+        { icon: "book", title: "Operations Manual", text: "A structured operating framework designed to protect consistency." },
+      ],
     },
-
-
-    includes: [],
-
-
     investment: {
-      image: {
-        src: hofuf,
-        alt: "BARCODE café",
-      },
-
-      title: "The investment",
-
-      note:
-        "* Fees shown exclude VAT. Final commercial terms are confirmed during the franchise process.",
+      image: { src: hofuf, alt: "BARCODE café" },
+      index: "03",
+      label: "THE INVESTMENT",
+      title: "Clear terms.",
+      accent: "A shared ambition.",
+      items: [
+        { value: "60,000", unit: "SAR", label: "FRANCHISE FEE" },
+        { value: "5%", unit: "", label: "ROYALTY" },
+        { value: "2%", unit: "", label: "ADVERTISING FEE" },
+        { value: "5", unit: "YEARS", label: "CONTRACT TERM" },
+      ],
+      note: "* Fees shown exclude VAT. Final commercial terms are confirmed during the franchise process.",
     },
-
-
-    journey: [],
-
-
-    faq: [],
+    journey: {
+      index: "04",
+      label: "FROM APPLICATION TO OPENING",
+      title: "Your journey to",
+      accent: "opening day.",
+      items: [
+        { number: "01", title: "Application", text: "Submit your initial franchise interest." },
+        { number: "02", title: "Review", text: "BARCODE reviews the application and fit." },
+        { number: "03", title: "Discussion", text: "Meet to discuss the opportunity and expectations." },
+        { number: "04", title: "Disclosure", text: "Complete the required disclosure and NDA stage." },
+        { number: "05", title: "Site Visit", text: "Evaluate and approve the proposed location." },
+        { number: "06", title: "Agreement", text: "Finalize the franchise agreement." },
+        { number: "07", title: "Build", text: "Move into design, construction and setup." },
+        { number: "08", title: "Training", text: "Prepare the team and conduct the soft opening." },
+        { number: "09", title: "Opening", text: "Launch with BARCODE opening assistance." },
+        { number: "10", title: "Marketing", text: "Begin the opening marketing programme." },
+      ],
+    },
+    faq: {
+      index: "05",
+      label: "FAQ",
+      title: "Answers for",
+      accent: "what's next.",
+      intro: "Key information for prospective BARCODE® franchise partners.",
+    },
+    application: {
+      title: "Franchise Opportunity",
+      intro: "Join our growing family of coffee entrepreneurs. Start your journey with a trusted brand and proven business model.",
+      firstName: "First name *", lastName: "Last name *", email: "Email Address *", phone: "Phone No *", city: "City", country: "Country",
+      target: "Target", targetOptions: ["Franchise"], trader: "Are you a trader?", traderOptions: ["Yes", "No"],
+      experience: "Tell us about your experience", submit: "Submit Application", submitting: "Submitting…", success: "Application received. Thank you.", error: "Unable to submit. Please try again.",
+    },
   },
-
 
   /* =========================================================
      TRACKING / PIXELS
