@@ -4,6 +4,7 @@ import { trackEvent } from "../analytics/tracker";
 import { ArrowRight, BadgeCheck, BookOpen, Building2, Megaphone, MapPinCheck, GraduationCap, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Footer } from "./Footer";
+import { useCms } from "../cms/CmsContext";
 import { Header } from "./Header";
 import franchiseHero from "../assets/about/about-cafe.jpg";
 import branchImage from "../assets/branches/al-hofuf.jpg";
@@ -30,17 +31,9 @@ const journey = [
   ["10", "Marketing", "Begin the opening marketing programme."],
 ];
 
-const faqs = [
-  ["Who supplies the materials and products?", "BARCODE provides the core framework for approved materials, coffee beans, branded products and suppliers to support consistency across locations."],
-  ["What pre-opening services are provided?", "Pre-opening support covers the preparation stages required to bring the outlet toward launch, including brand, operational and opening guidance."],
-  ["What about training?", "Training forms part of the franchise support package and is designed to prepare the operating team before opening."],
-  ["How long does it take to reach the opening stage?", "The timeline depends on location approval, design, construction and operational readiness. A more specific programme is established during the franchise process."],
-  ["What about ROI?", "Returns vary by location, investment, operating performance and market conditions. Financial expectations should be reviewed during the qualification process."],
-  ["Will BARCODE provide the location and build the outlet?", "BARCODE supports site approval and brand requirements; the exact responsibilities for location and construction are confirmed during the franchise process."],
-  ["Will a franchise manual be provided?", "Yes. An operations manual is included within the franchise support package."],
-];
-
 export function FranchisePage() {
+  const { cms } = useCms();
+  const faqs = cms.home.faq.items;
   const [applicationOpen, setApplicationOpen] = useState(false);
   const [submitState, setSubmitState] = useState<"idle"|"sending"|"sent"|"error">("idle");
 
@@ -143,10 +136,10 @@ export function FranchisePage() {
             <Reveal direction="left" delay={80}><h2>Answers for<br /><em>what's next.</em></h2><p>Key information for prospective BARCODE® franchise partners.</p></Reveal>
           </div>
           <div className="franchise-faq-list">
-            {faqs.map(([q, a], index) => (
-              <Reveal key={q} delay={index * 45}>
+            {faqs.map(({ q, a }, index) => (
+              <Reveal key={`${q}-${index}`} delay={index * 45}>
                 <details open={index === 0}>
-                  <summary><span>0{index + 1}</span><strong>{q}</strong><b>+</b></summary>
+                  <summary><span>{String(index + 1).padStart(2, "0")}</span><strong>{q}</strong><b>+</b></summary>
                   <p>{a}</p>
                 </details>
               </Reveal>
