@@ -101,24 +101,16 @@ h6 {
 .brand {
   display: flex;
   align-items: center;
-
   min-width: 220px;
-
-  line-height: 1;
-
-  /* move logo slightly right */
-  margin-left: 28px;
+  height: 84px;
 }
 
 .brand-logo {
   display: block;
-
-  width: 145px;
-  height: auto;
-
-  transition:
-    filter 0.4s ease,
-    opacity 0.4s ease;
+  width: auto;
+  height: 52px;
+  max-width: 150px;
+  object-fit: contain;
 }
 
 
