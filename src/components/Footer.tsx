@@ -1,7 +1,7 @@
 import {Mail,Phone} from 'lucide-react';
-import {useCms} from '../cms/CmsContext';
+import {useSiteCms} from '../cms/LanguageContext';
 export function Footer(){
- const{cms}=useCms(); const n=cms.global.nav; const f=cms.global.footer;
+ const{cms}=useSiteCms(); const n=cms.global.nav; const f=cms.global.footer;
  const phoneHref=`tel:${f.phone.replace(/[^+\d]/g,'')}`;
  return <footer className="site-footer"><div className="footer-container">
   <div className="footer-brand"><img src={cms.global.logo.src} alt={cms.global.logo.alt} className="footer-logo"/><p className="footer-description">{f.description}</p></div>

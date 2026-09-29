@@ -1,2 +1,2 @@
-import{StrictMode}from'react';import{createRoot}from'react-dom/client';import{BrowserRouter}from'react-router-dom';import'./index.css';import App from'./App';import{CmsProvider}from'./cms/CmsContext';import{AdminAuthProvider}from'./cms/auth/AdminAuthContext';
-createRoot(document.getElementById('root')!).render(<StrictMode><BrowserRouter><AdminAuthProvider><CmsProvider><App/></CmsProvider></AdminAuthProvider></BrowserRouter></StrictMode>);
+import{StrictMode}from'react';import{createRoot}from'react-dom/client';import{BrowserRouter}from'react-router-dom';import'./index.css';import App from'./App';import{LanguageProvider}from'./cms/LanguageContext';import{CmsProvider}from'./cms/CmsContext';import{AdminAuthProvider}from'./cms/auth/AdminAuthContext';
+createRoot(document.getElementById('root')!).render(<StrictMode><BrowserRouter><AdminAuthProvider><CmsProvider><LanguageProvider><App/></LanguageProvider></CmsProvider></AdminAuthProvider></BrowserRouter></StrictMode>);

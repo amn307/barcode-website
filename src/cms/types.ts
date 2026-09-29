@@ -19,5 +19,7 @@ export type CmsState = {
     faq:{index:string;label:string;title:string;accent:string;intro:string};
     application:{title:string;intro:string;firstName:string;lastName:string;email:string;phone:string;city:string;country:string;target:string;targetOptions:string[];trader:string;traderOptions:string[];experience:string;submit:string;submitting:string;success:string;error:string};
   };
+  /** Editable Arabic copy of the public website. Created automatically for existing CMS data. */
+  arabic?: { global:any; home:any; about:any; franchise:any };
   tracking:TrackingSettings; media:string[]; messages:CmsMessage[]; settings:{companyName:string;email:string;phone:string;baseUrl:string;instagram:string;linkedin:string}; updatedAt:string;
 };

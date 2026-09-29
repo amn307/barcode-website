@@ -12,12 +12,12 @@ import {
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { Reveal } from "./Reveal";
-import { useCms } from "../cms/CmsContext";
+import { useSiteCms } from "../cms/LanguageContext";
 
 
 
 export function AboutPage() {
-  const { cms } = useCms();
+  const { cms, isArabic } = useSiteCms();
   const ac = cms.about;
   const goals = ac.goals.map((x,i)=>({number:String(i+1).padStart(2,"0"),icon:[Coffee,Sparkles,Globe2][i%3],...x}));
   const values = ac.values.map((x,i)=>({number:String(i+1).padStart(2,"0"),icon:[ShieldCheck,HeartHandshake,Lightbulb,Target][i%4],...x}));
@@ -89,12 +89,12 @@ export function AboutPage() {
 
   <div className="about-story-footer">
     <div>
-      <span>GOOD COFFEE</span>
+      <span>{isArabic ? "قهوة مميزة" : "GOOD COFFEE"}</span>
       <i />
-      <span>BETTER PEOPLE</span>
+      <span>{isArabic ? "أشخاص أفضل" : "BETTER PEOPLE"}</span>
     </div>
 
-    <span>EST. 2019</span>
+    <span>{isArabic ? "منذ 2019" : "EST. 2019"}</span>
   </div>
 </section>
 
@@ -110,7 +110,7 @@ export function AboutPage() {
         <div className="direction-label">
           <span>01</span>
           <i />
-          <span>VISION</span>
+          <span>{isArabic ? "الرؤية" : "VISION"}</span>
         </div>
 
         <h2>{ac.direction.visionTitle}</h2>
@@ -125,7 +125,7 @@ export function AboutPage() {
         <div className="direction-label">
           <span>02</span>
           <i />
-          <span>MISSION</span>
+          <span>{isArabic ? "الرسالة" : "MISSION"}</span>
         </div>
 
         <h2>{ac.direction.missionTitle}</h2>
@@ -139,8 +139,8 @@ export function AboutPage() {
 
         <section className="about-page-goals about-page-pad">
           <Reveal>
-            <div className="about-page-label"><span>03</span><i /> OUR GOALS</div>
-            <h2>What we aim<br /><em>to achieve.</em></h2>
+            <div className="about-page-label"><span>03</span><i /> {isArabic ? "أهدافنا" : "OUR GOALS"}</div>
+            <h2>{isArabic ? "ما نطمح" : "What we aim"}<br /><em>{isArabic ? "إلى تحقيقه." : "to achieve."}</em></h2>
           </Reveal>
 
           <div className="about-page-goal-grid">
@@ -165,12 +165,12 @@ export function AboutPage() {
         <section className="about-page-values about-page-pad">
           <div className="about-page-values-heading">
             <Reveal direction="left">
-              <div className="about-page-label"><span>04</span><i /> OUR VALUES</div>
-              <h2>What moves us<br /><em>forward.</em></h2>
+              <div className="about-page-label"><span>04</span><i /> {isArabic ? "قيمنا" : "OUR VALUES"}</div>
+              <h2>{isArabic ? "ما يدفعنا" : "What moves us"}<br /><em>{isArabic ? "إلى الأمام." : "forward."}</em></h2>
             </Reveal>
             <Reveal direction="right">
               <p>
-                The principles behind every cup, every space, and every interaction carrying the BARCODE® name.
+                {isArabic ? "المبادئ التي تقف خلف كل كوب وكل مساحة وكل تفاعل يحمل اسم BARCODE®." : "The principles behind every cup, every space, and every interaction carrying the BARCODE® name."}
               </p>
             </Reveal>
           </div>

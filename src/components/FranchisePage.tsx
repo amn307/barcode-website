@@ -4,7 +4,7 @@ import { trackEvent } from "../analytics/tracker";
 import { ArrowRight, BadgeCheck, BookOpen, Building2, Megaphone, MapPinCheck, GraduationCap, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Footer } from "./Footer";
-import { useCms } from "../cms/CmsContext";
+import { useSiteCms } from "../cms/LanguageContext";
 import { Header } from "./Header";
 
 const franchiseIcons = {
@@ -12,7 +12,7 @@ const franchiseIcons = {
 };
 
 export function FranchisePage() {
-  const { cms } = useCms();
+  const { cms } = useSiteCms();
   const faqs = cms.home.faq.items;
   const f = cms.franchise;
   const [applicationOpen, setApplicationOpen] = useState(false);

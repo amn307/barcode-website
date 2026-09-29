@@ -1,7 +1,7 @@
-import { useCms } from "../cms/CmsContext";
+import { useSiteCms } from "../cms/LanguageContext";
 
 export function AboutSection() {
-  const { cms } = useCms();
+  const { cms } = useSiteCms();
   const a = cms.home.about;
   return (
     <section id="about" className="about-section">

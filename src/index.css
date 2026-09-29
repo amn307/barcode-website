@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Allerta&family=Montserrat:wght@400;500;600&display=swap");
 
+
+@font-face {
+  font-family: "GE SS TV";
+  src: url("./assets/fonts/GE-SS-TV-Light_10.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GE SS TV";
+  src: url("./assets/fonts/GE SS TV Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 /* =========================================================
    ROOT
 ========================================================= */
@@ -55,6 +71,7 @@ h6 {
   font-family: var(--heading);
   font-weight: 400;
 }
+
 
 /* =========================================================
    HEADER
@@ -3727,4 +3744,358 @@ h6 {
   .branch-list button.active .branch-name-row i::after {
     inset: 3px;
   }
+}
+
+/* =========================================================
+   ARABIC / RTL WEBSITE
+   ========================================================= */
+html[dir="rtl"] body { direction: rtl; }
+html[dir="rtl"] .site-header,
+html[dir="rtl"] .site-footer,
+html[dir="rtl"] main { font-family: "GE SS TV", "Noto Sans Arabic", Tahoma, Arial, sans-serif; }
+html[dir="rtl"] .site-header { direction: rtl; }
+html[dir="rtl"] .site-header nav { direction: rtl; }
+html[dir="rtl"] .header-actions { direction: rtl; }
+html[dir="rtl"] .partner span { margin-left: 0; margin-right: 16px; }
+html[dir="rtl"] .hero-statement-row,
+html[dir="rtl"] .hero-bottom-copy,
+html[dir="rtl"] .stats-section,
+html[dir="rtl"] .about-section,
+html[dir="rtl"] .menu-inner,
+html[dir="rtl"] .branches-section,
+html[dir="rtl"] .faq-section,
+html[dir="rtl"] .footer-container,
+html[dir="rtl"] .footer-bottom,
+html[dir="rtl"] .about-story-grid,
+html[dir="rtl"] .about-direction-grid,
+html[dir="rtl"] .about-page-goal-grid,
+html[dir="rtl"] .about-page-values-grid,
+html[dir="rtl"] .franchise-opportunity-grid,
+html[dir="rtl"] .franchise-includes-grid,
+html[dir="rtl"] .investment-grid,
+html[dir="rtl"] .journey-grid { direction: rtl; }
+html[dir="rtl"] .about-page-hero-content,
+html[dir="rtl"] .about-story-copy,
+html[dir="rtl"] .about-story-heading,
+html[dir="rtl"] .direction-content,
+html[dir="rtl"] .franchise-hero-content,
+html[dir="rtl"] .franchise-copy,
+html[dir="rtl"] .franchise-modal,
+html[dir="rtl"] .faq-intro,
+html[dir="rtl"] .branch-info { text-align: right; }
+html[dir="rtl"] .about-page-hero-side { right:auto; left:6%; }
+html[dir="rtl"] .footer-links,
+html[dir="rtl"] .footer-contact { align-items:flex-start; }
+html[dir="rtl"] .footer-links a { padding-left:0 !important; padding-right:11px !important; }
+html[dir="rtl"] .footer-links a::before { left:auto; right:0; }
+html[dir="rtl"] .footer-contact a { grid-template-columns:auto 20px !important; }
+html[dir="rtl"] input, html[dir="rtl"] textarea, html[dir="rtl"] select { text-align:right; direction:rtl; }
+html[dir="rtl"] .language { direction:ltr; }
+@media (max-width:700px){html[dir="rtl"] .about-page-hero{background-position:42% center;}}
+html[dir="rtl"] body,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] textarea,
+html[dir="rtl"] select,
+html[dir="rtl"] a {
+  font-family: "GE SS TV", Arial, sans-serif;
+}
+
+html[dir="rtl"] {
+  --heading: "GE SS TV", Arial, sans-serif;
+  --sans: "GE SS TV", Arial, sans-serif;
+}
+
+/* =========================================================
+   ARABIC TYPOGRAPHY TUNING — GE SS TV
+   ========================================================= */
+
+/* General Arabic body copy */
+html[dir="rtl"] body {
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* Main display headings */
+html[dir="rtl"] h1,
+html[dir="rtl"] .hero-title,
+html[dir="rtl"] .about-page-hero-title,
+html[dir="rtl"] .franchise-hero-title {
+  font-size: clamp(58px, 5.8vw, 92px) !important;
+  line-height: 1.12 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Section headings */
+html[dir="rtl"] h2,
+html[dir="rtl"] .section-title,
+html[dir="rtl"] .about-story-heading,
+html[dir="rtl"] .menu-title,
+html[dir="rtl"] .franchise-copy h2 {
+  font-size: clamp(44px, 4.2vw, 68px) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Card/item headings */
+html[dir="rtl"] h3,
+html[dir="rtl"] .menu-item h3,
+html[dir="rtl"] .include-card h3,
+html[dir="rtl"] .journey-card h3 {
+  font-size: 21px !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+}
+
+/* Paragraphs */
+html[dir="rtl"] p {
+  font-size: 17px;
+  line-height: 2;
+  letter-spacing: 0;
+}
+
+/* Small labels / eyebrows */
+html[dir="rtl"] .eyebrow,
+html[dir="rtl"] .section-label,
+html[dir="rtl"] .kicker,
+html[dir="rtl"] .about-story-label {
+  font-size: 15px !important;
+  line-height: 1.6;
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
+/* Header navigation */
+html[dir="rtl"] .site-header nav a {
+  font-size: 15px !important;
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
+/* Header buttons/language */
+html[dir="rtl"] .language,
+html[dir="rtl"] .partner {
+  font-size: 14px !important;
+  font-weight: 700;
+}
+
+/* Menu descriptions and similar card text */
+html[dir="rtl"] .menu-item p,
+html[dir="rtl"] .include-card p,
+html[dir="rtl"] .journey-card p {
+  font-size: 15px !important;
+  line-height: 1.9 !important;
+}
+
+html[dir="rtl"] .franchise-hero-content {
+  margin-left: 0;
+  margin-right: 7%;
+  text-align: right;
+  direction: rtl;
+}
+
+/* Keep exactly the same content width as English */
+html[dir="rtl"] .franchise-hero-copy {
+  width: inherit;
+  max-width: inherit;
+}
+
+html[dir="rtl"] .menu-grid,
+html[dir="rtl"] .franchise-includes-grid,
+html[dir="rtl"] .journey-grid {
+  direction: rtl;
+}
+
+html[dir="rtl"] .menu-item,
+html[dir="rtl"] .include-card,
+html[dir="rtl"] .journey-card {
+  text-align: right;
+}
+
+/* =========================================================
+   ARABIC — BRANCHES EXACT HORIZONTAL MIRROR
+   ========================================================= */
+
+@media (min-width: 1001px) {
+
+  /*
+   English:
+   INTRO 24% | LIST 12% | MAP 30% | FEATURE 34%
+
+   Arabic:
+   FEATURE 34% | MAP 30% | LIST 12% | INTRO 24%
+  */
+  html[dir="rtl"] .branches-section {
+    direction: ltr !important;
+
+    grid-template-columns:
+      minmax(500px, 34%)
+      minmax(400px, 30%)
+      minmax(220px, 12%)
+      minmax(280px, 24%) !important;
+  }
+
+  /* FEATURE CARD — far left */
+  html[dir="rtl"] .branch-feature {
+    grid-column: 1;
+    grid-row: 1;
+
+    direction: rtl;
+
+    margin:
+      45px
+      0
+      0
+      35px;
+  }
+
+  /* MAP — second column */
+  html[dir="rtl"] .map-panel {
+    grid-column: 2;
+    grid-row: 1;
+    direction: rtl;
+  }
+
+  /* BRANCH SELECTOR — third column */
+  html[dir="rtl"] .branch-list {
+    grid-column: 3;
+    grid-row: 1;
+
+    direction: rtl;
+
+    border-right: 0;
+    border-left: 1px solid rgba(173, 108, 46, 0.15);
+  }
+
+  /* INTRO — far right */
+  html[dir="rtl"] .branches-intro {
+    grid-column: 4;
+    grid-row: 1;
+
+    direction: rtl;
+    text-align: right;
+
+    border-right: 0;
+    border-left: 1px solid rgba(173, 108, 46, 0.15);
+
+    padding:
+      105px
+      clamp(45px, 4.5vw, 75px)
+      55px
+      38px;
+  }
+
+  /*
+   Grey background behind feature column.
+
+   English begins at 66%.
+   Arabic feature occupies LEFT 34%.
+  */
+  html[dir="rtl"] .branches-section::after {
+    left: 0;
+    right: auto;
+    width: 34%;
+  }
+
+  /* Branch buttons */
+  html[dir="rtl"] .branch-list button {
+    text-align: right;
+
+    padding:
+      25px
+      24px;
+  }
+
+  html[dir="rtl"] .branch-list button:hover {
+    padding-left: 24px;
+    padding-right: 29px;
+  }
+
+  /* Number + line */
+  html[dir="rtl"] .branch-number {
+    direction: rtl;
+  }
+
+  /* Name + selection circle */
+  html[dir="rtl"] .branch-name-row {
+    direction: rtl;
+  }
+
+  /* Content inside feature image */
+  html[dir="rtl"] .branch-info {
+    direction: rtl;
+    text-align: right;
+
+    left: 35px;
+    right: 38px;
+  }
+
+  html[dir="rtl"] .branch-info p {
+    direction: rtl;
+  }
+
+  /* Feature navigation arrows */
+  html[dir="rtl"] .branch-arrows {
+    right: auto;
+    left: 25px;
+
+    direction: rtl;
+  }
+
+  /* EST. 2019 */
+  html[dir="rtl"] .branches-est {
+    right: auto;
+    left: 65px;
+
+    direction: rtl;
+  }
+
+  /* Side decorative copy */
+  html[dir="rtl"] .branch-side-copy {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+/* =========================================================
+   ARABIC — LIGHTER TYPOGRAPHY
+   ========================================================= */
+
+/* Header navigation */
+html[dir="rtl"] .site-header nav a {
+  font-family: "GE SS TV", Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Language selector */
+html[dir="rtl"] .language {
+  font-family: "GE SS TV", Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Header CTA */
+html[dir="rtl"] .partner {
+  font-family: "GE SS TV", Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Small labels / eyebrows */
+html[dir="rtl"] .eyebrow,
+html[dir="rtl"] .franchise-kicker,
+html[dir="rtl"] .franchise-section-label {
+  font-family: "GE SS TV", Arial, sans-serif !important;
+  font-weight: 300 !important;
+}
+
+/* Paragraphs */
+html[dir="rtl"] p {
+  font-weight: 300 !important;
+}
+
+/* Buttons and links */
+html[dir="rtl"] button,
+html[dir="rtl"] a {
+  font-weight: 300;
 }

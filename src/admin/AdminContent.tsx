@@ -1,4 +1,4 @@
-import {useState} from 'react'; import {useCms} from '../cms/CmsContext';  import{uploadCmsFile}from'../cms/mediaUploads';
+import {useState} from 'react'; import {useCms} from '../cms/CmsContext'; import {buildArabicContent} from '../cms/LanguageContext'; import{uploadCmsFile}from'../cms/mediaUploads';
 type Path=(string|number)[]; const asset=(v:any)=>v&&typeof v==='object'&&typeof v.src==='string'&&typeof v.alt==='string'; const label=(s:string)=>s.replace(/([A-Z])/g,' $1').replace(/^./,c=>c.toUpperCase());
 function setAt(root:any,path:Path,value:any){let p=root;for(const k of path.slice(0,-1))p=p[k];p[path.at(-1)!]=value}
 function Editor({v,path,change}:{v:any;path:Path;change:(p:Path,v:any)=>void}){const[busy,setBusy]=useState(false);if(asset(v))return <div className="qa-asset"><img src={v.src} alt={v.alt}/><input value={v.src} onChange={e=>change([...path,'src'],e.target.value)}/><input value={v.alt} onChange={e=>change([...path,'alt'],e.target.value)} placeholder="Alt text"/><label className="qa-upload">{busy?'Uploading…':'Upload replacement'}<input type="file" accept="image/*,video/*" onChange={async e=>{const f=e.target.files?.[0];if(!f)return;setBusy(true);try{change([...path,'src'],await uploadCmsFile(f))}finally{setBusy(false)}}}/></label></div>;
@@ -9,4 +9,26 @@ if(Array.isArray(v)){
 }
 if(v&&typeof v==='object')return <div>{Object.entries(v).map(([k,x])=><section className="qa-group" key={k}><h3>{label(k)}</h3><Editor v={x} path={[...path,k]} change={change}/></section>)}</div>;
 if(typeof v==='boolean')return <input type="checkbox" checked={v} onChange={e=>change(path,e.target.checked)}/>; if(typeof v==='number')return <input type="number" value={v} onChange={e=>change(path,+e.target.value)}/>;return String(v).length>80||String(v).includes('\n')?<textarea rows={4} value={String(v)} onChange={e=>change(path,e.target.value)}/>:<input value={String(v)} onChange={e=>change(path,e.target.value)}/>}
-export default function AdminContent(){const{cms,updateCms}=useCms();const[tab,setTab]=useState<'global'|'home'|'about'|'franchise'>('home');const change=(p:Path,v:any)=>updateCms(c=>{setAt(c,p,v);return c});return <div><div className="qa-title"><p>CONTENT</p><h1>Website editor</h1><span>Edits sync to Firestore automatically.</span></div><div className="qa-tabs">{(['global','home','about','franchise']as const).map(x=><button className={tab===x?'active':''} onClick={()=>setTab(x)}>{label(x)}</button>)}</div><div className="qa-card"><Editor v={(cms as any)[tab]} path={[tab]} change={change}/></div></div>}
+export default function AdminContent(){
+  const{cms,updateCms}=useCms();
+  const[tab,setTab]=useState<'global'|'home'|'about'|'franchise'>('home');
+  const[contentLanguage,setContentLanguage]=useState<'en'|'ar'>('en');
+  const change=(p:Path,v:any)=>updateCms(c=>{setAt(c,p,v);return c});
+  const switchLanguage=(next:'en'|'ar')=>{
+    if(next==='ar'&&!cms.arabic){
+      updateCms(c=>{c.arabic=buildArabicContent(c);return c});
+    }
+    setContentLanguage(next);
+  };
+  const root=contentLanguage==='ar'?(cms.arabic??buildArabicContent(cms)):cms;
+  const editorPath:Path=contentLanguage==='ar'?['arabic',tab]:[tab];
+  return <div>
+    <div className="qa-title"><p>CONTENT</p><h1>Website editor</h1><span>Edit English and Arabic independently. Edits sync to Firestore automatically.</span></div>
+    <div className="qa-tabs" style={{marginBottom:12}}>
+      <button className={contentLanguage==='en'?'active':''} onClick={()=>switchLanguage('en')}>English</button>
+      <button className={contentLanguage==='ar'?'active':''} onClick={()=>switchLanguage('ar')}>العربية</button>
+    </div>
+    <div className="qa-tabs">{(['global','home','about','franchise']as const).map(x=><button key={x} className={tab===x?'active':''} onClick={()=>setTab(x)}>{label(x)}</button>)}</div>
+    <div className="qa-card" dir={contentLanguage==='ar'?'rtl':'ltr'}><Editor v={(root as any)[tab]} path={editorPath} change={change}/></div>
+  </div>
+}
