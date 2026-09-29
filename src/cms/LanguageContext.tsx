@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { useCms } from "./CmsContext";
-import type { CmsState } from "./types";
+import type { CmsState, PublicCmsContent } from "./types";
 
 type Language = "en" | "ar";
 const LanguageContext = createContext<{language:Language; setLanguage:(l:Language)=>void; toggleLanguage:()=>void; isArabic:boolean} | null>(null);
@@ -19,7 +19,7 @@ export function LanguageProvider({children}:{children:ReactNode}) {
 }
 export function useLanguage(){const v=useContext(LanguageContext);if(!v)throw new Error("useLanguage must be used inside LanguageProvider");return v}
 
-export function buildArabicContent(cms:CmsState) {
+export function buildArabicContent(cms:CmsState): PublicCmsContent {
   const a=structuredClone(cms);
   a.global.nav={home:"الرئيسية",about:"من نحن",menu:"القائمة",branches:"الفروع",franchise:"الامتياز التجاري",language:"◎   English",partner:"كن شريكاً",application:"ابدأ طلبك"};
   Object.assign(a.global.footer,{description:"نصنع تجارب قهوة استثنائية منذ عام 2019. كل كوب يحكي قصة من الشغف والجودة والمجتمع.",quickLinksTitle:"روابط سريعة",contactTitle:"تواصل معنا",followTitle:"تابعنا",followText:"انضم إلى مجتمع محبي القهوة وابقَ على اطلاع على أحدث عروضنا.",goodCoffee:"قهوة مميزة",betterPeople:"أشخاص أفضل",established:"منذ 2019",copyright:`© ${new Date().getFullYear()} BARCODE® Coffee Experts. جميع الحقوق محفوظة.`});
@@ -45,7 +45,7 @@ export function buildArabicContent(cms:CmsState) {
   return { global:a.global, home:a.home, about:a.about, franchise:a.franchise };
 }
 
-export function useSiteCms(){
+export function useSiteCms(): { cms: CmsState; isArabic: boolean } {
   const {cms}=useCms();
   const {isArabic}=useLanguage();
   if(!isArabic) return {cms,isArabic};
